@@ -1,0 +1,91 @@
+/* styles/Sidebar.module.css */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: #333;
+  color: white;
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: #444;
+  position: relative;
+  z-index: 1001;
+}
+
+.sidebarContent {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.menuButton {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition:
+    transform 0.3s,
+    left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: fixed;
+  top: 20px;
+  left: 0px;
+  z-index: 1100;
+}
+
+.menuButton.sidebarOpen {
+  left: 250px; /* Menggeser tombol ke kanan saat sidebar terbuka */
+}
+.menuButton.sidebarClosed {
+  left: 10px; /* Menempel ke tepi kiri dengan sedikit padding */
+}
+
+.menuButton:focus {
+  outline: none;
+}
+
+.menuButton:hover {
+  transform: scale(1.1);
+}
+
+.sidebarHeader h2 {
+  margin: 0;
+  flex-grow: 1; /* Agar teks "Sidebar Menu" mengisi ruang yang tersedia */
+  text-align: center;
+}
+
+.sidebarContent ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebarContent li {
+  margin: 15px 0;
+}
+
+.sidebarContent a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.sidebarContent a:hover {
+  color: #ddd;
+}
